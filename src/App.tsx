@@ -4,6 +4,7 @@ import { addCustomerAction, CustomerAction, removeCustomerAction } from './store
 
 import type { State } from './store';
 import type { Customer } from './store/customerReducer'
+import { fetchCustomers } from './async-action/customers';
 
 const App = () => {
 
@@ -46,13 +47,16 @@ const App = () => {
           Снять со счета
         </button>
         <button onClick={() => addCustomer(`${Math.random()}`)}>
-          Добавить клиенты
+          Добавить клиента
+        </button>
+        <button onClick={() => dispatch(fetchCustomers())}>
+          Добавить клиентов и базы
         </button>
       </div>
       {customers?.length > 0 ? 
         <div>
             {customers.map(customer => 
-                <div onClick={() => removeCustomer(customer)}>
+                <div key={customer.id} onClick={() => removeCustomer(customer)}>
                     {customer.name}
                 </div>
             )}

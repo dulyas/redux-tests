@@ -7,6 +7,7 @@ import {combineReducers} from 'redux'
 import type { CashState } from './cashReducer'
 import type { CustomerState } from './customerReducer'
 
+
 export type State = {
     cash: CashState
     customer: CustomerState
